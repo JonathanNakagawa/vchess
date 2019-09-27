@@ -1,14 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyparser = require('body-parser');
 
 require('dotenv').config();
 
 const app = express();
 
 // Set up middleware
-app.use(bodyparser.urlencoded({extended: false}));
-app.use(bodyparser.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 // Read values from .env
 port = process.env.PORT || 5000;
