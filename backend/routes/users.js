@@ -1,15 +1,13 @@
-const router = require('express').Router;
+const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const validateRegisterInput = require("../validation/register.validation");
 const validateLoginInput = require("../validation/login.validation");
 
-
-
 const User = require("../models/user.model");
 
-router.route("/register", (req,res) => {
+router.route('/register').post((req,res) => {
     const {errors, isValid} = validateRegisterInput(req.body);
 
     if(!isValid) {
@@ -44,7 +42,7 @@ router.route("/register", (req,res) => {
         });
 });
 
-router.route("/login", (req, res) => {
+router.route('/login').post((req, res) => {
     
     const {errors, isValid} = validateLoginInput(req.body);
 
