@@ -66,7 +66,8 @@ router.route('/login').post((req, res) => {
 
                 jwt.sign(payload, 
                     process.env.PRIVATE_KEY, {
-                    expiresIn: 31556926
+                    expiresIn: 31556926,
+                    algorithm:  "RS256"
                     },
                     (err, token) => {
                         res.json({
