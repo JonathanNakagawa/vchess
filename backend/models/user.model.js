@@ -14,7 +14,7 @@ const UserSchema = new Schema({
         type: String,
         required: true
     }
-});
+},{collection:'user'});
 
-User = mongoose.model("UserModel", UserSchema)
+User = mongoose.model('user', UserSchema)
 module.exports = User;
