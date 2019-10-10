@@ -64,8 +64,10 @@ router.route('/login').post((req, res) => {
                     name: user.name
                 };
 
+                const privateKey  = fs.readFileSync('./config/private.key', 'utf8');
+
                 jwt.sign(payload, 
-                    process.env.PRIVATE_KEY, {
+                    privateKey, {
                     expiresIn: 31556926,
                     algorithm:  "RS256"
                     },

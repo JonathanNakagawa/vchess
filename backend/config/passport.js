@@ -1,12 +1,13 @@
-const JwtStrategy = require("passport-jwt").Strategy;
-const ExtractJwt = require("passport-jwt").ExtractJwt;
-const mongoose = require("mongoose");
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
+const mongoose = require('mongoose');
+const fs = require('fs');
 
 const User = require('../models/user.model');
 
 const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = process.env.PUBLIC_KEY;
+opts.secretOrKey = fs.readFileSync('./config/public.key', 'utf8');
 opts.algorithms = ['RS256'];
 
 module.exports = passport => {
