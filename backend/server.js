@@ -29,8 +29,8 @@ mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
     .catch(err => console.log('Database connection failed:' + err));
 
 
-UserRouter = require("./routes/users");
+UserRouter = require("./routes/user.route");
 
-app.use("/users", UserRouter);
+app.use("/api/user", UserRouter);
 
 app.listen(port, () => console.log('Server running on port ' + port));
